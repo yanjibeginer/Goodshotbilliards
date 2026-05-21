@@ -63,6 +63,16 @@ namespace Goodshotbilliards.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _5683f6bb_c312_422f_90f9_041c2b06f9b0 {
+            get {
+                object obj = ResourceManager.GetObject("5683f6bb-c312-422f-90f9-041c2b06f9b0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cd0794c9_13eb_42f0_afed_679b8535f076 {
             get {
                 object obj = ResourceManager.GetObject("cd0794c9-13eb-42f0-afed-679b8535f076", resourceCulture);
@@ -93,9 +103,59 @@ namespace Goodshotbilliards.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap download {
+            get {
+                object obj = ResourceManager.GetObject("download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download__1_ {
+            get {
+                object obj = ResourceManager.GetObject("download (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ds1 {
             get {
                 object obj = ResourceManager.GetObject("ds1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_dashboard_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-dashboard-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_dashboard_layout_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-dashboard-layout-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_pc_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-pc-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +176,16 @@ namespace Goodshotbilliards.Properties {
         internal static System.Drawing.Bitmap image_removebg_preview__1_ {
             get {
                 object obj = ResourceManager.GetObject("image-removebg-preview (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_removebg_preview__11_ {
+            get {
+                object obj = ResourceManager.GetObject("image-removebg-preview (11)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +253,26 @@ namespace Goodshotbilliards.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap image_removebg_preview__8_ {
+            get {
+                object obj = ResourceManager.GetObject("image-removebg-preview (8)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_removebg_preview__9_ {
+            get {
+                object obj = ResourceManager.GetObject("image-removebg-preview (9)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2026_05_11_004507 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2026-05-11 004507", resourceCulture);
@@ -196,6 +286,46 @@ namespace Goodshotbilliards.Properties {
         internal static System.Drawing.Bitmap Screenshot_2026_05_11_011114 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2026-05-11 011114", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_05_13_122629 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2026-05-13 122629", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_05_13_224856 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2026-05-13 224856", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Screenshot_2026_05_13_233749 {
+            get {
+                object obj = ResourceManager.GetObject("Screenshot 2026-05-13 233749", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stopwatch {
+            get {
+                object obj = ResourceManager.GetObject("stopwatch", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
