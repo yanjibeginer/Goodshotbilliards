@@ -50,12 +50,215 @@ namespace Goodshotbilliards
         {
             InitializeComponent();
 
+            // 1. Listen to the megaphone
+            BilliardsState.OnTableStateChanged += RefreshDashboardUI;
+
+            // 2. Run the math right away
+            RefreshDashboardUI();
         }
+        public void RefreshDashboardUI()
+        {
+            int availableCount = 0;
+            int occupiedCount = 0;
+
+            foreach (var table in BilliardsState.TableStatuses)
+            {
+                if (table.Value == true)
+                {
+                    occupiedCount++;
+                }
+                else
+                {
+                    availableCount++;
+                }
+            }
+
+            // Using your exact label names from lines 57 & 58!
+            lblAvailable.Text = availableCount.ToString();
+            lblOccupied.Text = occupiedCount.ToString();
+
+            // --- NEW CODE: UPDATE TABLE 1 ---
+            if (BilliardsState.TableStatuses["Table 1"] == true)
+            {// MAGIC CHECK: Is the timer actually ticking right now?
+                if (table1Timer.Enabled == true)
+                {
+                    lblStatus1.Text = "  ● IN USE";
+                    lblStatus1.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lblStatus1.Text = "  ● OCCUPIED";
+                    lblStatus1.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68); // The normal Red
+                }
+
+                txtCustomer1.Text = BilliardsState.TableAssignments["Table 1"];
+            }
+            else
+            {
+                lblStatus1.Text = "● AVAILABLE";
+                lblStatus1.ForeColor = System.Drawing.Color.FromArgb(0, 255, 120);
+                txtCustomer1.Text = "Enter player name";
+            }
+            //TABLE 2 STATUS UPDATE
+            if (BilliardsState.TableStatuses["Table 2"] == true)
+            {
+                if (table2Timer.Enabled == true)
+                {
+                    lblStatus2.Text = "  ● IN USE";
+                    lblStatus2.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lblStatus2.Text = "  ● OCCUPIED";
+                    lblStatus2.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
+                }
+
+                txtCustomer2.Text = BilliardsState.TableAssignments["Table 2"];
+            }
+            else
+            {
+                lblStatus2.Text = "  ● AVAILABLE";
+                lblStatus2.ForeColor = System.Drawing.Color.FromArgb(0, 219, 100);
+                txtCustomer2.Text = "Enter player name";
+            }
+            //TABLE 3 STATUS UPDATE
+            if (BilliardsState.TableStatuses["Table 3"] == true)
+            {
+                if (table3Timer.Enabled == true)
+                {
+                    lblStatus3.Text = "  ● IN USE";
+                    lblStatus3.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lblStatus3.Text = "  ● OCCUPIED";
+                    lblStatus3.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
+                }
+
+                txtCustomer3.Text = BilliardsState.TableAssignments["Table 3"];
+            }
+            else
+            {
+                lblStatus3.Text = "  ● AVAILABLE";
+                lblStatus3.ForeColor = System.Drawing.Color.FromArgb(0, 219, 100);
+                txtCustomer3.Text = "Enter player name";
+            }
+            //TABLE 4 STATUS UPDATE
+            if (BilliardsState.TableStatuses["Table 4"] == true)
+            {
+                if (table4Timer.Enabled == true)
+                {
+                    lblStatus4.Text = "  ● IN USE";
+                    lblStatus4.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lblStatus4.Text = "  ● OCCUPIED";
+                    lblStatus4.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
+                }
+
+                txtCustomer4.Text = BilliardsState.TableAssignments["Table 4"];
+            }
+            else
+            {
+                lblStatus4.Text = "  ● AVAILABLE";
+                lblStatus4.ForeColor = System.Drawing.Color.FromArgb(0, 219, 100);
+                txtCustomer4.Text = "Enter player name";
+            }
+            //TABLE 5 STATUS UPDATE
+            if (BilliardsState.TableStatuses["Table 5"] == true)
+            {
+                if (table5Timer.Enabled == true)
+                {
+                    lblStatus5.Text = "  ● IN USE";
+                    lblStatus5.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lblStatus5.Text = "  ● OCCUPIED";
+                    lblStatus5.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
+                }
+
+                txtCustomer5.Text = BilliardsState.TableAssignments["Table 5"];
+            }
+            else
+            {
+                lblStatus5.Text = "  ● AVAILABLE";
+                lblStatus5.ForeColor = System.Drawing.Color.FromArgb(0, 219, 100);
+                txtCustomer5.Text = "Enter player name";
+            }
+            //TABLE 6 STATUS UPDATE
+            if (BilliardsState.TableStatuses["Table 6"] == true)
+            {
+                if (table6Timer.Enabled == true)
+                {
+                    lblStatus6.Text = "  ● IN USE";
+                    lblStatus6.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lblStatus6.Text = "  ● OCCUPIED";
+                    lblStatus6.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
+                }
+
+                txtCustomer6.Text = BilliardsState.TableAssignments["Table 6"];
+            }
+            else
+            {
+                lblStatus6.Text = "  ● AVAILABLE";
+                lblStatus6.ForeColor = System.Drawing.Color.FromArgb(0, 219, 100);
+                txtCustomer6.Text = "Enter player name";
+            }
+            // UPDATE TABLE 7 (VIP) ---
+            if (BilliardsState.TableStatuses["Table 7"] == true)
+            {
+                if (table7Timer.Enabled == true)
+                {
+                    lblStatus7.Text = "  ● IN USE";
+                    lblStatus7.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lblStatus7.Text = "  ● OCCUPIED";
+                    lblStatus7.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
+                }
+
+                txtCustomer7.Text = BilliardsState.TableAssignments["Table 7"];
+            }
+            else
+            {
+                lblStatus7.Text = "  ● AVAILABLE";
+                lblStatus7.ForeColor = Color.Goldenrod; // Keeps your VIP text Gold!
+                txtCustomer7.Text = "Enter player name";
+            }
+                                // --- NEW CODE: UPDATE TABLE 8 (VIP) ---
+                                if (BilliardsState.TableStatuses["Table 8"] == true)
+                                {
+                                    if (table8Timer.Enabled == true)
+                                    {
+                                        lblStatus8.Text = "  ● IN USE";
+                                        lblStatus8.ForeColor = Color.OrangeRed;
+                                    }
+                                    else
+                                    {
+                                        lblStatus8.Text = "  ● OCCUPIED";
+                                        lblStatus8.ForeColor = System.Drawing.Color.FromArgb(239, 68, 68);
+                                    }
+
+                                    txtCustomer8.Text = BilliardsState.TableAssignments["Table 8"];
+                                }
+                                else
+                                {
+                                    lblStatus8.Text = "  ● AVAILABLE";
+                                    lblStatus8.ForeColor = Color.Goldenrod; // Keeps your VIP text Gold!
+                                    txtCustomer8.Text = "Enter player name";
+                                }
+                            }
+                        
+   
         private void ucDashboard_Load(object sender, EventArgs e)
         {
             lblTotalTables.Text = "8";
-            lblAvailable.Text = availableTables.ToString();
-            lblOccupied.Text = occupiedTables.ToString();
 
             table1Timer.Interval = 1000; // 1 second
             table1Timer.Tick += Table1Timer_Tick;
@@ -229,146 +432,148 @@ namespace Goodshotbilliards
         // table 1 click
         private void btnTable1_Click(object sender, EventArgs e)
         {
-            if (lblStatus1.Text.Trim() == "AVAILABLE" || lblStatus1.Text.Contains("AVAILABLE"))
+            if (btnTable1.Text.Contains("START"))
             {
-                int hours;
-
-                if (!int.TryParse(txtHours1.Text, out hours) || hours <= 0)
+                double hours;
+                if (!double.TryParse(txtHours1.Text, out hours) || hours <= 0)
                 {
-                    MessageBox.Show("Enter valid hours.");
+                    MessageBox.Show("Enter valid hours (e.g., 1 or 1.5).");
                     return;
                 }
+                if (hours < 1)
+                {
+                    hours = 1; // Force the computer to use 1 hour
+                    txtHours1.Text = "1"; // Update the textbox so the customer sees it!
+                }
 
+                // Calculate charge (100 per hour)
                 double charge = hours * 100;
-
+                lblCurrentCharge1.Text = "₱" + charge.ToString("N2"); // Added the exact Peso symbol!
+               
                 lblStatus1.Text = "  ● IN USE";
                 lblStatus1.ForeColor = Color.OrangeRed;
-
-                // --- NEW TIMER LOGIC START ---
-                // Convert the hours into a TimeSpan and start the timer
+                // Start Timer
                 table1TimeRemaining = TimeSpan.FromHours(hours);
                 lblTimer1.Text = table1TimeRemaining.ToString(@"hh\:mm\:ss");
                 table1Timer.Start();
-                // --- NEW TIMER LOGIC END ---
 
-                lblCurrentCharge1.Text = "₱" + charge.ToString("N0");
-
-                btnTable1.Text = "END SESSION";
+            
+                lblStatus1.ForeColor = Color.OrangeRed;
+                // Update UI for running state
+                btnTable1.Text = "END SESSION"; // Or add a square symbol if you want!
                 btnTable1.BackColor = Color.Firebrick;
+                txtHours1.Enabled = false;
 
-                availableTables--;
-                occupiedTables++;
-
-                lblAvailable.Text = availableTables.ToString();
-                lblOccupied.Text = occupiedTables.ToString();
+                // FIX 3: If you typed the name manually, tell the Brain so it updates the Top Numbers!
+                BilliardsState.TableStatuses["Table 1"] = true;
+                BilliardsState.TableAssignments["Table 1"] = txtCustomer1.Text;
+                RefreshDashboardUI();
             }
+            // --- IF WE ARE ENDING A SESSION ---
             else
             {
-
                 table1Timer.Stop();
-                string cleanAmount1 = lblCurrentCharge1.Text.Replace("₱", "").Replace(",", "");
+
+                // FIX 2: Safely remove BOTH the standard P and the Peso symbol ₱
+                string cleanAmount1 = lblCurrentCharge1.Text.Replace("₱", "").Replace("P", "").Replace(",", "").Trim();
+
                 GlobalData.DailyTransactions.Add(new Transaction
                 {
-                    TableNumber = 1,
-                    TableType = "Regular",
-                    TimePlayed = txtHours1.Text + " hours",
-                    AmountPaid = Convert.ToDouble(cleanAmount1),
-                    TimeFinished = DateTime.Now,
-
-                    CustomerName = txtCustomer1.Text
+                    TABLE = 1,
+                    TYPE = "Regular",
+                    DURATION = txtHours1.Text + " hours",
+                    AMOUNT = Convert.ToDouble(cleanAmount1),
+                    SESSION_END = DateTime.Now,
+                    CUSTOMER = txtCustomer1.Text
                 });
 
-             
+                SaveTransactionToDatabase("1", "Regular", txtHours1.Text, Convert.ToDouble(cleanAmount1), txtCustomer1.Text);
 
-                lblStatus1.Text = "AVAILABLE"; // Removed the circle to match your original check
-                lblStatus1.ForeColor = Color.Lime;
+                // Tell the brain the table is free!
+                BilliardsState.TableStatuses["Table 1"] = false;
+                BilliardsState.TableAssignments["Table 1"] = "";
+                RefreshDashboardUI();
+
+                // Reset the screen
                 lblTimer1.Text = "00:00:00";
                 lblCurrentCharge1.Text = "₱0.00";
-                btnTable1.Text = "START SESSION";
+                btnTable1.Text = "▷ START SESSION"; // Put  triangle back
                 btnTable1.BackColor = Color.FromArgb(34, 197, 94);
-
-                availableTables++;
-                occupiedTables--;
-
-                lblAvailable.Text = availableTables.ToString();
-                lblOccupied.Text = occupiedTables.ToString();
-                
-                txtCustomer1.Text = "Enter player name";
-                txtCustomer1.ForeColor = Color.FromArgb(156, 163, 175);
                 txtHours1.Clear();
-
+                txtHours1.Enabled = true;
 
             }
         }
         // TABLE 2 clik
         private void btnTable2_Click(object sender, EventArgs e)
         {
-            if (lblStatus2.Text.Trim() == "AVAILABLE" || lblStatus2.Text.Contains("AVAILABLE"))
+            // --- IF WE ARE STARTING A SESSION ---
+            if (btnTable2.Text.Contains("START"))
             {
-                int hours;
-
-                if (!int.TryParse(txtHours2.Text, out hours) || hours <= 0)
+                double hours;
+                if (!double.TryParse(txtHours2.Text, out hours) || hours <= 0)
                 {
-                    MessageBox.Show("Enter valid hours.");
+                    MessageBox.Show("Enter valid hours (e.g., 1 or 1.5).");
                     return;
                 }
+               
+                if (hours < 1)
+                {
+                    hours = 1; // Force the computer to use 1 hour
+                    txtHours2.Text = "1"; // Update the textbox so the customer sees it!
+                }
 
+                // 1. Calculate charge (100 per hour)
                 double charge = hours * 100;
+                lblCurrentCharge2.Text = "₱" + charge.ToString("N2");
 
-                lblStatus2.Text = "  ● IN USE";
-                lblStatus2.ForeColor = Color.OrangeRed;
-
-                // --- NEW TIMER LOGIC START ---
-                // Convert the hours into a TimeSpan and start the timer
+                // 2. Start Timer
                 table2TimeRemaining = TimeSpan.FromHours(hours);
                 lblTimer2.Text = table2TimeRemaining.ToString(@"hh\:mm\:ss");
                 table2Timer.Start();
-                // --- NEW TIMER LOGIC END ---
 
-                lblCurrentCharge2.Text = "₱" + charge.ToString("N0");
-
+                // 3. Update UI for running state
+                lblStatus2.Text = "  ● IN USE";
+                lblStatus2.ForeColor = Color.OrangeRed;
                 btnTable2.Text = "END SESSION";
                 btnTable2.BackColor = Color.Firebrick;
+                txtHours2.Enabled = false;
 
-                availableTables--;
-                occupiedTables++;
-
-                lblAvailable.Text = availableTables.ToString();
-                lblOccupied.Text = occupiedTables.ToString();
+                // 4. Tell the Brain!
+                BilliardsState.TableStatuses["Table 2"] = true;
+                BilliardsState.TableAssignments["Table 2"] = txtCustomer2.Text;
+                RefreshDashboardUI();
             }
+            // --- IF WE ARE ENDING A SESSION ---
             else
             {
-                // --- NEW TIMER LOGIC START ---
-                // Stop the timer when the session ends
                 table2Timer.Stop();
-                string cleanAmount2 = lblCurrentCharge2.Text.Replace("₱", "").Replace(",", "");
+
+                // Log Transaction 
+                string cleanAmount2 = lblCurrentCharge2.Text.Replace("₱", "").Replace("P", "").Replace(",", "").Trim();
                 GlobalData.DailyTransactions.Add(new Transaction
                 {
-                    TableNumber = 2,
-                    TableType = "Regular",
-                    TimePlayed = txtHours2.Text + " hours",
-                    AmountPaid = Convert.ToDouble(cleanAmount2),
-                    TimeFinished = DateTime.Now,
-                    CustomerName = txtCustomer2.Text
+                    TABLE = 2,
+                    TYPE = "Regular",
+                    DURATION = txtHours2.Text + " hours",
+                    AMOUNT = Convert.ToDouble(cleanAmount2),
+                    SESSION_END = DateTime.Now,
+                    CUSTOMER = txtCustomer2.Text
                 });
+                SaveTransactionToDatabase("2", "Regular", txtHours2.Text, Convert.ToDouble(cleanAmount2), txtCustomer2.Text);
 
+                // TELL THE BRAIN THE TABLE IS FREE!
+                BilliardsState.TableStatuses["Table 2"] = false;
+                BilliardsState.TableAssignments["Table 2"] = "";
+                RefreshDashboardUI();
 
-                lblStatus2.Text = "AVAILABLE"; // Removed the circle to match your original check
-                lblStatus2.ForeColor = Color.Lime;
-
+                // Reset the specific Table 2 numbers
                 lblTimer2.Text = "00:00:00";
                 lblCurrentCharge2.Text = "₱0.00";
-
-                btnTable2.Text = "START SESSION";
+                btnTable2.Text = "▷ START SESSION";
                 btnTable2.BackColor = Color.FromArgb(34, 197, 94);
-                availableTables++;
-                occupiedTables--;
-
-                lblAvailable.Text = availableTables.ToString();
-                lblOccupied.Text = occupiedTables.ToString();
-                txtCustomer2.Text = "Enter player name";
-                txtCustomer2.ForeColor = Color.FromArgb(156, 163, 175);
                 txtHours2.Clear();
+                txtHours2.Enabled = true;
 
 
             }
@@ -376,335 +581,430 @@ namespace Goodshotbilliards
         // table 3 clik
         private void btnTable3_Click(object sender, EventArgs e)
         {
-            if (lblStatus3.Text.Trim() == "AVAILABLE" || lblStatus3.Text.Contains("AVAILABLE"))
+            // --- IF WE ARE STARTING A SESSION ---
+            if (btnTable3.Text.Contains("START"))
             {
-                int hours;
-                if (!int.TryParse(txtHours3.Text, out hours) || hours <= 0)
+                double hours;
+                if (!double.TryParse(txtHours3.Text, out hours) || hours <= 0)
                 {
-                    MessageBox.Show("Enter valid hours."); return;
+                    MessageBox.Show("Enter valid hours (e.g., 1 or 1.5).");
+                    return;
                 }
-                double charge = hours * 100;
-                lblStatus3.Text = "  ● IN USE";
-                lblStatus3.ForeColor = Color.OrangeRed;
+             
+                if (hours < 1)
+                {
+                    hours = 1; // Force the computer to use 1 hour
+                    txtHours3.Text = "1"; // Update the textbox so the customer sees it!
+                }
 
+                // 1. Calculate charge (100 per hour)
+                double charge = hours * 100;
+                lblCurrentCharge3.Text = "₱" + charge.ToString("N2");
+
+                // 2. Start Timer
                 table3TimeRemaining = TimeSpan.FromHours(hours);
                 lblTimer3.Text = table3TimeRemaining.ToString(@"hh\:mm\:ss");
                 table3Timer.Start();
 
-                lblCurrentCharge3.Text = "₱" + charge.ToString("N0");
+                // 3. Update UI for running state
+                lblStatus3.Text = "  ● IN USE";
+                lblStatus3.ForeColor = Color.OrangeRed;
                 btnTable3.Text = "END SESSION";
                 btnTable3.BackColor = Color.Firebrick;
-                availableTables--; occupiedTables++;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
+                txtHours3.Enabled = false;
+
+                // 4. Tell the Brain!
+                BilliardsState.TableStatuses["Table 3"] = true;
+                BilliardsState.TableAssignments["Table 3"] = txtCustomer3.Text;
+                RefreshDashboardUI();
             }
+            // --- IF WE ARE ENDING A SESSION ---
             else
             {
                 table3Timer.Stop();
-                string cleanAmount3 = lblCurrentCharge3.Text.Replace("₱", "").Replace(",", "");
+
+                // Log Transaction 
+                string cleanAmount3 = lblCurrentCharge3.Text.Replace("₱", "").Replace("P", "").Replace(",", "").Trim();
                 GlobalData.DailyTransactions.Add(new Transaction
                 {
-                    TableNumber = 3,
-                    TableType = "Regular",
-                    TimePlayed = txtHours3.Text + " hours",
-                    AmountPaid = Convert.ToDouble(cleanAmount3),
-                    TimeFinished = DateTime.Now,
-                    CustomerName = txtCustomer3.Text
+                    TABLE = 3,
+                    TYPE = "Regular",
+                    DURATION = txtHours3.Text + " hours",
+                    AMOUNT = Convert.ToDouble(cleanAmount3),
+                    SESSION_END = DateTime.Now,
+                    CUSTOMER = txtCustomer3.Text
                 });
+                SaveTransactionToDatabase("3", "Regular", txtHours3.Text, Convert.ToDouble(cleanAmount3), txtCustomer3.Text);
 
-                lblStatus3.Text = "AVAILABLE";
-                lblStatus3.ForeColor = Color.Lime;
+                // TELL THE BRAIN THE TABLE IS FREE!
+                BilliardsState.TableStatuses["Table 3"] = false;
+                BilliardsState.TableAssignments["Table 3"] = "";
+                RefreshDashboardUI();
+
+                // Reset the specific Table 3 numbers
                 lblTimer3.Text = "00:00:00";
                 lblCurrentCharge3.Text = "₱0.00";
-                btnTable3.Text = "START SESSION";
+                btnTable3.Text = "▷ START SESSION";
                 btnTable3.BackColor = Color.FromArgb(34, 197, 94);
-                availableTables++; occupiedTables--;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
-
-                txtCustomer3.Text = "Enter player name";
-                txtCustomer3.ForeColor = Color.FromArgb(156, 163, 175);
                 txtHours3.Clear();
+                txtHours3.Enabled = true;
             }
         }
 
         // table 4 clik
         private void btnTable4_Click(object sender, EventArgs e)
         {
-            if (lblStatus4.Text.Trim() == "AVAILABLE" || lblStatus4.Text.Contains("AVAILABLE"))
+            // --- IF WE ARE STARTING A SESSION ---
+            if (btnTable4.Text.Contains("START"))
             {
-                int hours;
-                if (!int.TryParse(txtHours4.Text, out hours) || hours <= 0)
+                double hours;
+                if (!double.TryParse(txtHours4.Text, out hours) || hours <= 0)
                 {
-                    MessageBox.Show("Enter valid hours."); return;
+                    MessageBox.Show("Enter valid hours (e.g., 1 or 1.5).");
+                    return;
                 }
-                double charge = hours * 100;
-                lblStatus4.Text = "  ● IN USE";
-                lblStatus4.ForeColor = Color.OrangeRed;
 
+                if (hours < 1)
+                {
+                    hours = 1; // Force the computer to use 1 hour
+                    txtHours4.Text = "1"; // Update the textbox so the customer sees it!
+                }
+
+                // 1. Calculate charge (100 per hour)
+                double charge = hours * 100;
+                lblCurrentCharge4.Text = "₱" + charge.ToString("N2");
+
+                // 2. Start Timer
                 table4TimeRemaining = TimeSpan.FromHours(hours);
                 lblTimer4.Text = table4TimeRemaining.ToString(@"hh\:mm\:ss");
                 table4Timer.Start();
 
-                lblCurrentCharge4.Text = "₱" + charge.ToString("N0");
+                // 3. Update UI for running state
+                lblStatus4.Text = "  ● IN USE";
+                lblStatus4.ForeColor = Color.OrangeRed;
                 btnTable4.Text = "END SESSION";
                 btnTable4.BackColor = Color.Firebrick;
+                txtHours4.Enabled = false;
 
-                availableTables--;
-                occupiedTables++;
-                lblAvailable.Text = availableTables.ToString();
-                lblOccupied.Text = occupiedTables.ToString();
+                // 4. Tell the Brain!
+                BilliardsState.TableStatuses["Table 4"] = true;
+                BilliardsState.TableAssignments["Table 4"] = txtCustomer4.Text;
+                RefreshDashboardUI();
             }
+            // --- IF WE ARE ENDING A SESSION ---
             else
             {
                 table4Timer.Stop();
-                string cleanAmount4 = lblCurrentCharge4.Text.Replace("₱", "").Replace(",", "");
+
+                // Log Transaction 
+                string cleanAmount4 = lblCurrentCharge4.Text.Replace("₱", "").Replace("P", "").Replace(",", "").Trim();
                 GlobalData.DailyTransactions.Add(new Transaction
                 {
-                    TableNumber = 4,
-                    TableType = "Regular",
-                    TimePlayed = txtHours4.Text + " hours",
-                    AmountPaid = Convert.ToDouble(cleanAmount4),
-                    TimeFinished = DateTime.Now,
-                    CustomerName = txtCustomer4.Text
+                    TABLE = 4,
+                    TYPE = "Regular",
+                    DURATION = txtHours4.Text + " hours",
+                    AMOUNT = Convert.ToDouble(cleanAmount4),
+                    SESSION_END = DateTime.Now,
+                    CUSTOMER = txtCustomer4.Text
                 });
+                SaveTransactionToDatabase("4", "Regular", txtHours4.Text, Convert.ToDouble(cleanAmount4), txtCustomer4.Text);
 
-                lblStatus4.Text = "AVAILABLE";
-                lblStatus4.ForeColor = Color.Lime;
+                // TELL THE BRAIN THE TABLE IS FREE!
+                BilliardsState.TableStatuses["Table 4"] = false;
+                BilliardsState.TableAssignments["Table 4"] = "";
+                RefreshDashboardUI();
+
+                // Reset the specific Table 4 numbers
                 lblTimer4.Text = "00:00:00";
                 lblCurrentCharge4.Text = "₱0.00";
-                btnTable4.Text = "START SESSION";
+                btnTable4.Text = "▷ START SESSION";
                 btnTable4.BackColor = Color.FromArgb(34, 197, 94);
-                availableTables++; occupiedTables--;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
-               
-                txtCustomer4.Text = "Enter player name";
-                txtCustomer4.ForeColor = Color.FromArgb(156, 163, 175);
                 txtHours4.Clear();
+                txtHours4.Enabled = true;
             }
         }
 
         // table 5 clik
         private void btnTable5_Click(object sender, EventArgs e)
         {
-            if (lblStatus5.Text.Trim() == "AVAILABLE" || lblStatus5.Text.Contains("AVAILABLE"))
+            // --- IF WE ARE STARTING A SESSION ---
+            if (btnTable5.Text.Contains("START"))
             {
-                int hours;
-                if (!int.TryParse(txtHours5.Text, out hours) || hours <= 0)
+                double hours;
+                if (!double.TryParse(txtHours5.Text, out hours) || hours <= 0)
                 {
-                    MessageBox.Show("Enter valid hours."); return;
+                    MessageBox.Show("Enter valid hours (e.g., 1 or 1.5).");
+                    return;
                 }
-                double charge = hours * 100;
-                lblStatus5.Text = "  ● IN USE";
-                lblStatus5.ForeColor = Color.OrangeRed;
 
+                if (hours < 1)
+                {
+                    hours = 1; // Force the computer to use 1 hour
+                    txtHours5.Text = "1"; // Update the textbox so the customer sees it!
+                }
+
+                // 1. Calculate charge (100 per hour)
+                double charge = hours * 100;
+                lblCurrentCharge5.Text = "₱" + charge.ToString("N2");
+
+                // 2. Start Timer
                 table5TimeRemaining = TimeSpan.FromHours(hours);
                 lblTimer5.Text = table5TimeRemaining.ToString(@"hh\:mm\:ss");
                 table5Timer.Start();
 
-                lblCurrentCharge5.Text = "₱" + charge.ToString("N0");
+                // 3. Update UI for running state
+                lblStatus5.Text = "  ● IN USE";
+                lblStatus5.ForeColor = Color.OrangeRed;
                 btnTable5.Text = "END SESSION";
                 btnTable5.BackColor = Color.Firebrick;
-                availableTables--; occupiedTables++;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
+                txtHours5.Enabled = false;
+
+                // 4. Tell the Brain!
+                BilliardsState.TableStatuses["Table 5"] = true;
+                BilliardsState.TableAssignments["Table 5"] = txtCustomer5.Text;
+                RefreshDashboardUI();
             }
+            // --- IF WE ARE ENDING A SESSION ---
             else
             {
                 table5Timer.Stop();
 
-             
-                string cleanAmount5 = lblCurrentCharge5.Text.Replace("₱", "").Replace(",", "");
+                // Log Transaction 
+                string cleanAmount5 = lblCurrentCharge5.Text.Replace("₱", "").Replace("P", "").Replace(",", "").Trim();
                 GlobalData.DailyTransactions.Add(new Transaction
                 {
-                    TableNumber = 5,
-                    TableType = "Regular",
-                    TimePlayed = txtHours5.Text + " hours",
-                    AmountPaid = Convert.ToDouble(cleanAmount5),
-                    TimeFinished = DateTime.Now,
-                    CustomerName = txtCustomer5.Text
+                    TABLE = 5,
+                    TYPE = "Regular",
+                    DURATION = txtHours5.Text + " hours",
+                    AMOUNT = Convert.ToDouble(cleanAmount5),
+                    SESSION_END = DateTime.Now,
+                    CUSTOMER = txtCustomer5.Text
                 });
-                lblStatus5.Text = "AVAILABLE";
-                lblStatus5.ForeColor = Color.Lime;
+
+                SaveTransactionToDatabase("5", "Regular", txtHours5.Text, Convert.ToDouble(cleanAmount5), txtCustomer5.Text);
+                // TELL THE BRAIN THE TABLE IS FREE!
+                BilliardsState.TableStatuses["Table 5"] = false;
+                BilliardsState.TableAssignments["Table 5"] = "";
+                RefreshDashboardUI();
+
+                // Reset the specific Table 5 numbers
                 lblTimer5.Text = "00:00:00";
                 lblCurrentCharge5.Text = "₱0.00";
-                btnTable5.Text = "START SESSION";
+                btnTable5.Text = "▷ START SESSION";
                 btnTable5.BackColor = Color.FromArgb(34, 197, 94);
-                availableTables++; occupiedTables--;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
-
-                txtCustomer5.Text = "Enter player name";
-                txtCustomer5.ForeColor = Color.FromArgb(156, 163, 175);
                 txtHours5.Clear();
+                txtHours5.Enabled = true;
             }
         }
 
         // table 6 clik
         private void btnTable6_Click(object sender, EventArgs e)
         {
-            if (lblStatus6.Text.Trim() == "AVAILABLE" || lblStatus6.Text.Contains("AVAILABLE"))
-            {
-                int hours;
-                if (!int.TryParse(txtHours6.Text, out hours) || hours <= 0)
-                {
-                    MessageBox.Show("Enter valid hours."); return;
-                }
-                double charge = hours * 100;
-                lblStatus6.Text = "  ● IN USE";
-                lblStatus6.ForeColor = Color.OrangeRed;
 
+            // --- IF WE ARE STARTING A SESSION ---
+            if (btnTable6.Text.Contains("START"))
+            {
+                double hours;
+                if (!double.TryParse(txtHours6.Text, out hours) || hours <= 0)
+                {
+                    MessageBox.Show("Enter valid hours (e.g., 1 or 1.5).");
+                    return;
+                }
+
+                if (hours < 1)
+                {
+                    hours = 1; // Force the computer to use 1 hour
+                    txtHours6.Text = "1"; // Update the textbox so the customer sees it!
+                }
+
+                // 1. Calculate charge (100 per hour)
+                double charge = hours * 100;
+                lblCurrentCharge6.Text = "₱" + charge.ToString("N2");
+
+                // 2. Start Timer
                 table6TimeRemaining = TimeSpan.FromHours(hours);
                 lblTimer6.Text = table6TimeRemaining.ToString(@"hh\:mm\:ss");
                 table6Timer.Start();
 
-                lblCurrentCharge6.Text = "₱" + charge.ToString("N0");
+                // 3. Update UI for running state
+                lblStatus6.Text = "  ● IN USE";
+                lblStatus6.ForeColor = Color.OrangeRed;
                 btnTable6.Text = "END SESSION";
                 btnTable6.BackColor = Color.Firebrick;
-                availableTables--; occupiedTables++;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
+                txtHours6.Enabled = false;
+
+                // 4. Tell the Brain!
+                BilliardsState.TableStatuses["Table 6"] = true;
+                BilliardsState.TableAssignments["Table 6"] = txtCustomer6.Text;
+                RefreshDashboardUI();
             }
+            // --- IF WE ARE ENDING A SESSION ---
             else
             {
                 table6Timer.Stop();
 
-                string cleanAmount6 = lblCurrentCharge6.Text.Replace("₱", "").Replace(",", "");
+                // Log Transaction 
+                string cleanAmount6 = lblCurrentCharge6.Text.Replace("₱", "").Replace("P", "").Replace(",", "").Trim();
                 GlobalData.DailyTransactions.Add(new Transaction
                 {
-                    TableNumber = 6,
-                    TableType = "Regular",
-                    TimePlayed = txtHours6.Text + " hours",
-                    AmountPaid = Convert.ToDouble(cleanAmount6),
-                    TimeFinished = DateTime.Now,
-                    CustomerName = txtCustomer6.Text
+                    TABLE = 6,
+                    TYPE = "Regular",
+                    DURATION = txtHours6.Text + " hours",
+                    AMOUNT = Convert.ToDouble(cleanAmount6),
+                    SESSION_END = DateTime.Now,
+                    CUSTOMER = txtCustomer6.Text
                 });
+                SaveTransactionToDatabase("6", "Regular", txtHours6.Text, Convert.ToDouble(cleanAmount6), txtCustomer6.Text);
 
-                lblStatus6.Text = "AVAILABLE";
-                lblStatus6.ForeColor = Color.Lime;
+                // TELL THE BRAIN THE TABLE IS FREE!
+                BilliardsState.TableStatuses["Table 6"] = false;
+                BilliardsState.TableAssignments["Table 6"] = "";
+                RefreshDashboardUI();
+
+                // Reset the specific Table 6 numbers
                 lblTimer6.Text = "00:00:00";
                 lblCurrentCharge6.Text = "₱0.00";
-                btnTable6.Text = "START SESSION";
+                btnTable6.Text = "▷ START SESSION";
                 btnTable6.BackColor = Color.FromArgb(34, 197, 94);
-                availableTables++; occupiedTables--;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
-
-                txtCustomer6.Text = "Enter player name";
-                txtCustomer6.ForeColor = Color.FromArgb(156, 163, 175);
                 txtHours6.Clear();
+                txtHours6.Enabled = true;
             }
         }
         // --- TABLE 7 VIP CLICK ---
         private void btnTable7_Click(object sender, EventArgs e)
         {
-            if (lblStatus7.Text.Trim() == "AVAILABLE" || lblStatus7.Text.Contains("AVAILABLE"))
+            // --- IF WE ARE STARTING A SESSION ---
+            if (btnTable7.Text.Contains("START"))
             {
-                int hours;
-                if (!int.TryParse(txtHours7.Text, out hours) || hours < 2)
+                double hours;
+
+                // VIP RULE 1: The number MUST be 2 or higher!
+                if (!double.TryParse(txtHours7.Text, out hours) || hours < 2)
                 {
-                    MessageBox.Show("VIP Tables require a minimum of 2 hours.", "Minimum Time Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; //reset
+                    MessageBox.Show("VIP Tables require a minimum of 2 hours! Please enter 2 or more.", "VIP Requirement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
+                // VIP RULE 2: Calculate charge (₱140 per hour = ₱280 for 2 hours)
+                double charge = hours * 140;
+                lblCurrentCharge7.Text = "₱" + charge.ToString("N2");
 
-                // VIP RATE: ₱200 per hour
-                double charge = hours * 200;
-
-                lblStatus7.Text = "  ● IN USE";
-                lblStatus7.ForeColor = Color.OrangeRed;
-
+                // Start Timer
                 table7TimeRemaining = TimeSpan.FromHours(hours);
                 lblTimer7.Text = table7TimeRemaining.ToString(@"hh\:mm\:ss");
                 table7Timer.Start();
 
-                // Using "N0" for clean numbers!
-                lblCurrentCharge7.Text = "₱" + charge.ToString("N0");
-
+                // Update UI for running state
+                lblStatus7.Text = "  ● IN USE";
+                lblStatus7.ForeColor = Color.OrangeRed;
                 btnTable7.Text = "END SESSION";
                 btnTable7.BackColor = Color.Firebrick;
-                availableTables--; occupiedTables++;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
+                txtHours7.Enabled = false;
+
+                // Tell the Brain!
+                BilliardsState.TableStatuses["Table 7"] = true;
+                BilliardsState.TableAssignments["Table 7"] = txtCustomer7.Text;
+                RefreshDashboardUI();
             }
+            // --- IF WE ARE ENDING A SESSION ---
             else
             {
                 table7Timer.Stop();
-                string cleanAmount7 = lblCurrentCharge7.Text.Replace("₱", "").Replace(",", "");
+
+                // Save it to the database as a "VIP" transaction
+                string cleanAmount7 = lblCurrentCharge7.Text.Replace("₱", "").Replace("P", "").Replace(",", "").Trim();
                 GlobalData.DailyTransactions.Add(new Transaction
                 {
-                    TableNumber = 7,
-                    TableType = "VIP",
-                    TimePlayed = txtHours7.Text + " hours",
-                    AmountPaid = Convert.ToDouble(cleanAmount7),
-                    TimeFinished = DateTime.Now,
-                    CustomerName = txtCustomer7.Text
+                    TABLE = 7,
+                    TYPE = "VIP",
+                    DURATION = txtHours7.Text + " hours",
+                    AMOUNT = Convert.ToDouble(cleanAmount7),
+                    SESSION_END = DateTime.Now,
+                    CUSTOMER = txtCustomer7.Text
                 });
+                SaveTransactionToDatabase("7", "VIP", txtHours7.Text, Convert.ToDouble(cleanAmount7), txtCustomer7.Text);
 
-                lblStatus7.Text = "AVAILABLE";
-                lblStatus7.ForeColor = Color.Gold;
+                // TELL THE BRAIN THE TABLE IS FREE
+                BilliardsState.TableStatuses["Table 7"] = false;
+                BilliardsState.TableAssignments["Table 7"] = "";
+                RefreshDashboardUI();
+
+                // Reset the screen, keep it Gold!
                 lblTimer7.Text = "00:00:00";
                 lblCurrentCharge7.Text = "₱0.00";
-                btnTable7.Text = "START SESSION";
+                btnTable7.Text = "▷ START SESSION";
                 btnTable7.BackColor = Color.Goldenrod;
-                availableTables++; occupiedTables--;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
-
-                txtCustomer7.Text = "Enter player name";
-                txtCustomer7.ForeColor = Color.FromArgb(156, 163, 175);
                 txtHours7.Clear();
+                txtHours7.Enabled = true;
             }
         }
 
         // --- TABLE 8 VIP CLICK ---
         private void btnTable8_Click(object sender, EventArgs e)
         {
-            if (lblStatus8.Text.Trim() == "AVAILABLE" || lblStatus8.Text.Contains("AVAILABLE"))
+            // --- IF WE ARE STARTING A SESSION ---
+            if (btnTable8.Text.Contains("START"))
             {
-                int hours;
-                if (!int.TryParse(txtHours8.Text, out hours) || hours < 2)
+                double hours;
+
+                // VIP RULE 1: The number MUST be 2 or higher!
+                if (!double.TryParse(txtHours8.Text, out hours) || hours < 2)
                 {
-                    MessageBox.Show("VIP Tables require a minimum of 2 hours.", "Minimum Time Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // reset
+                    MessageBox.Show("VIP Tables require a minimum of 2 hours! Please enter 2 or more.", "VIP Requirement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
 
-                // VIP RATE: ₱200 per hour
-                double charge = hours * 200;
+                // VIP RULE 2: Calculate charge (₱140 per hour = ₱280 for 2 hours)
+                double charge = hours * 140;
+                lblCurrentCharge8.Text = "₱" + charge.ToString("N2");
 
-                lblStatus8.Text = "  ● IN USE";
-                lblStatus8.ForeColor = Color.OrangeRed;
-
+                // Start Timer
                 table8TimeRemaining = TimeSpan.FromHours(hours);
                 lblTimer8.Text = table8TimeRemaining.ToString(@"hh\:mm\:ss");
                 table8Timer.Start();
 
-                // Using "N0" for clean numbers!
-                lblCurrentCharge8.Text = "₱" + charge.ToString("N0");
-
+                // Update UI for running state
+                lblStatus8.Text = "  ● IN USE";
+                lblStatus8.ForeColor = Color.OrangeRed;
                 btnTable8.Text = "END SESSION";
                 btnTable8.BackColor = Color.Firebrick;
-                availableTables--; occupiedTables++;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
+                txtHours8.Enabled = false;
+
+                // Tell the Brain!
+                BilliardsState.TableStatuses["Table 8"] = true;
+                BilliardsState.TableAssignments["Table 8"] = txtCustomer8.Text;
+                RefreshDashboardUI();
             }
+            // --- IF WE ARE ENDING A SESSION ---
             else
             {
                 table8Timer.Stop();
-                string cleanAmount8 = lblCurrentCharge8.Text.Replace("₱", "").Replace(",", "");
+
+                // Save it to the database as a "VIP" transaction
+                string cleanAmount8 = lblCurrentCharge8.Text.Replace("₱", "").Replace("P", "").Replace(",", "").Trim();
                 GlobalData.DailyTransactions.Add(new Transaction
                 {
-                    TableNumber = 8,
-                    TableType = "VIP",
-                    TimePlayed = txtHours8.Text + " hours",
-                    AmountPaid = Convert.ToDouble(cleanAmount8),
-                    TimeFinished = DateTime.Now,
-                    CustomerName = txtCustomer8.Text
+                    TABLE = 8,
+                    TYPE = "VIP",
+                    DURATION = txtHours8.Text + " hours",
+                    AMOUNT = Convert.ToDouble(cleanAmount8),
+                    SESSION_END = DateTime.Now,
+                    CUSTOMER = txtCustomer8.Text
                 });
+                SaveTransactionToDatabase("8", "VIP", txtHours8.Text, Convert.ToDouble(cleanAmount8), txtCustomer8.Text);
 
-                lblStatus8.Text = "AVAILABLE";
-                lblStatus8.ForeColor = Color.Gold;
+                // TELL THE BRAIN THE TABLE IS FREE
+                BilliardsState.TableStatuses["Table 8"] = false;
+                BilliardsState.TableAssignments["Table 8"] = "";
+                RefreshDashboardUI();
+
+                // Reset the screen, keep it Gold!
                 lblTimer8.Text = "00:00:00";
                 lblCurrentCharge8.Text = "₱0.00";
-                btnTable8.Text = "START SESSION";
+                btnTable8.Text = "▷ START SESSION";
                 btnTable8.BackColor = Color.Goldenrod;
-                availableTables++; occupiedTables--;
-                lblAvailable.Text = availableTables.ToString(); lblOccupied.Text = occupiedTables.ToString();
-
-                txtCustomer8.Text = "Enter player name";
-                txtCustomer8.ForeColor = Color.FromArgb(156, 163, 175);
                 txtHours8.Clear();
+                txtHours8.Enabled = true;
             }
         }
 
@@ -748,7 +1048,7 @@ namespace Goodshotbilliards
                 txtCustomer2.Text = "Enter player name";
                 txtCustomer2.ForeColor = Color.FromArgb(156, 163, 175);
             }
-           }
+        }
 
         //TABLE 3 CUSTOMER NAME 
         private void txtCustomer3_Enter(object sender, EventArgs e)
@@ -866,8 +1166,83 @@ namespace Goodshotbilliards
             }
         }
 
+        private void cardOccupied_Paint(object sender, PaintEventArgs e)
+        {
+            Color borderColor = Color.FromArgb(100, 45, 55, 75);
+
+            // 2. Draw the border
+            using (Pen borderPen = new Pen(borderColor, 1))
+            {
+                //  subtract 1 from the width and height so the line stays  inside the panel
+                e.Graphics.DrawRectangle(borderPen, 0, 0, this.cardOccupied.Width - 1, this.cardOccupied.Height - 1);
+            }
+
+        }
+
+        private void cardTotalTables_Paint(object sender, PaintEventArgs e)
+        {
+            Color borderColor = Color.FromArgb(100, 45, 55, 75);
+
+            // 2. Draw the border
+            using (Pen borderPen = new Pen(borderColor, 1))
+            {
+                //  subtract 1 from the width and height so the line stays  inside the panel
+                e.Graphics.DrawRectangle(borderPen, 0, 0, this.cardTotalTables.Width - 1, this.cardTotalTables.Height - 1);
+            }
+
+        }
+
+        private void cardAvailable_Paint(object sender, PaintEventArgs e)
+        {
+            Color borderColor = Color.FromArgb(100, 45, 55, 75);
+
+            // 2. Draw the border
+            using (Pen borderPen = new Pen(borderColor, 1))
+            {
+                //  subtract 1 from the width and height so the line stays  inside the panel
+                e.Graphics.DrawRectangle(borderPen, 0, 0, this.cardAvailable.Width - 1, this.cardAvailable.Height - 1);
+            }
+        }
+        // --- THE MASTER SAVE METHOD ---
+        private void SaveTransactionToDatabase(string tableNumber, string tableType, string hours, double amount, string customer)
+        {
+            try
+            {
+                using (var connection = new System.Data.SQLite.SQLiteConnection(DatabaseHelper.ConnectionString))
+                {
+                    connection.Open();
+
+                    string insertQuery = @"INSERT INTO Transactions 
+                                     (TableNumber, TableType, TimePlayed, AmountPaid, TimeFinished, CustomerName) 
+                                     VALUES (@table, @type, @duration, @amount, @timeFinished, @customer)";
+
+                    using (var command = new System.Data.SQLite.SQLiteCommand(insertQuery, connection))
+                    {
+                        // It uses whatever flexible data was passed to it!
+                        command.Parameters.AddWithValue("@table", tableNumber);
+                        command.Parameters.AddWithValue("@type", tableType);
+                        command.Parameters.AddWithValue("@duration", hours + " hours");
+                        command.Parameters.AddWithValue("@amount", amount);
+                        command.Parameters.AddWithValue("@timeFinished", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                        command.Parameters.AddWithValue("@customer", customer);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to save transaction to database: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
     }
 }
+
 
 
 

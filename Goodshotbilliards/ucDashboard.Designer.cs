@@ -61,7 +61,6 @@
             this.btnTable1 = new System.Windows.Forms.Button();
             this.lblCurrentCharge1 = new System.Windows.Forms.Label();
             this.lblTimer1 = new System.Windows.Forms.Label();
-            this.lblStatus1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlTable2 = new System.Windows.Forms.Panel();
             this.txtCustomer2 = new System.Windows.Forms.TextBox();
@@ -212,6 +211,7 @@
             this.lblStatus8 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.lblStatus1 = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.cardTotalTables.SuspendLayout();
@@ -259,7 +259,7 @@
             // 
             // cardTotalTables
             // 
-            this.cardTotalTables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.cardTotalTables.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(17)))), ((int)(((byte)(21)))), ((int)(((byte)(39)))));
             this.cardTotalTables.Controls.Add(this.lblTotalTables);
             this.cardTotalTables.Controls.Add(this.label30);
             this.cardTotalTables.Location = new System.Drawing.Point(3, 3);
@@ -267,6 +267,7 @@
             this.cardTotalTables.Padding = new System.Windows.Forms.Padding(10);
             this.cardTotalTables.Size = new System.Drawing.Size(133, 63);
             this.cardTotalTables.TabIndex = 8;
+            this.cardTotalTables.Paint += new System.Windows.Forms.PaintEventHandler(this.cardTotalTables_Paint);
             // 
             // lblTotalTables
             // 
@@ -292,7 +293,7 @@
             // 
             // cardAvailable
             // 
-            this.cardAvailable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.cardAvailable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(17)))), ((int)(((byte)(21)))), ((int)(((byte)(39)))));
             this.cardAvailable.Controls.Add(this.lblAvailable);
             this.cardAvailable.Controls.Add(this.label33);
             this.cardAvailable.Location = new System.Drawing.Point(142, 3);
@@ -300,6 +301,7 @@
             this.cardAvailable.Padding = new System.Windows.Forms.Padding(10);
             this.cardAvailable.Size = new System.Drawing.Size(133, 63);
             this.cardAvailable.TabIndex = 9;
+            this.cardAvailable.Paint += new System.Windows.Forms.PaintEventHandler(this.cardAvailable_Paint);
             // 
             // lblAvailable
             // 
@@ -325,13 +327,14 @@
             // 
             // cardOccupied
             // 
-            this.cardOccupied.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(24)))), ((int)(((byte)(39)))));
+            this.cardOccupied.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(17)))), ((int)(((byte)(21)))), ((int)(((byte)(39)))));
             this.cardOccupied.Controls.Add(this.lblOccupied);
             this.cardOccupied.Controls.Add(this.label35);
             this.cardOccupied.Location = new System.Drawing.Point(281, 3);
             this.cardOccupied.Name = "cardOccupied";
             this.cardOccupied.Size = new System.Drawing.Size(133, 63);
             this.cardOccupied.TabIndex = 9;
+            this.cardOccupied.Paint += new System.Windows.Forms.PaintEventHandler(this.cardOccupied_Paint);
             // 
             // lblOccupied
             // 
@@ -593,11 +596,12 @@
             // 
             this.lblCurrentCharge1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentCharge1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(204)))), ((int)(((byte)(21)))));
-            this.lblCurrentCharge1.Location = new System.Drawing.Point(100, 215);
+            this.lblCurrentCharge1.Location = new System.Drawing.Point(84, 216);
             this.lblCurrentCharge1.Name = "lblCurrentCharge1";
             this.lblCurrentCharge1.Size = new System.Drawing.Size(101, 30);
             this.lblCurrentCharge1.TabIndex = 3;
             this.lblCurrentCharge1.Text = "₱0.00";
+            this.lblCurrentCharge1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer1
             // 
@@ -610,19 +614,6 @@
             this.lblTimer1.TabIndex = 2;
             this.lblTimer1.Text = "00:00:00";
             this.lblTimer1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblStatus1
-            // 
-            this.lblStatus1.AutoSize = true;
-            this.lblStatus1.BackColor = System.Drawing.Color.Transparent;
-            this.lblStatus1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblStatus1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(120)))));
-            this.lblStatus1.Location = new System.Drawing.Point(86, 43);
-            this.lblStatus1.Name = "lblStatus1";
-            this.lblStatus1.Size = new System.Drawing.Size(87, 17);
-            this.lblStatus1.TabIndex = 1;
-            this.lblStatus1.Text = "● AVAILABLE";
             // 
             // label1
             // 
@@ -833,11 +824,12 @@
             // 
             this.lblCurrentCharge2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentCharge2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(204)))), ((int)(((byte)(21)))));
-            this.lblCurrentCharge2.Location = new System.Drawing.Point(100, 215);
+            this.lblCurrentCharge2.Location = new System.Drawing.Point(84, 216);
             this.lblCurrentCharge2.Name = "lblCurrentCharge2";
             this.lblCurrentCharge2.Size = new System.Drawing.Size(101, 30);
             this.lblCurrentCharge2.TabIndex = 3;
             this.lblCurrentCharge2.Text = "₱0.00";
+            this.lblCurrentCharge2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer2
             // 
@@ -1073,11 +1065,12 @@
             // 
             this.lblCurrentCharge3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentCharge3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(204)))), ((int)(((byte)(21)))));
-            this.lblCurrentCharge3.Location = new System.Drawing.Point(100, 215);
+            this.lblCurrentCharge3.Location = new System.Drawing.Point(85, 215);
             this.lblCurrentCharge3.Name = "lblCurrentCharge3";
             this.lblCurrentCharge3.Size = new System.Drawing.Size(101, 30);
             this.lblCurrentCharge3.TabIndex = 3;
             this.lblCurrentCharge3.Text = "₱0.00";
+            this.lblCurrentCharge3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer3
             // 
@@ -1313,11 +1306,12 @@
             // 
             this.lblCurrentCharge4.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentCharge4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(204)))), ((int)(((byte)(21)))));
-            this.lblCurrentCharge4.Location = new System.Drawing.Point(100, 215);
+            this.lblCurrentCharge4.Location = new System.Drawing.Point(85, 216);
             this.lblCurrentCharge4.Name = "lblCurrentCharge4";
             this.lblCurrentCharge4.Size = new System.Drawing.Size(101, 30);
             this.lblCurrentCharge4.TabIndex = 3;
             this.lblCurrentCharge4.Text = "₱0.00";
+            this.lblCurrentCharge4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer4
             // 
@@ -1553,11 +1547,12 @@
             // 
             this.lblCurrentCharge5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentCharge5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(204)))), ((int)(((byte)(21)))));
-            this.lblCurrentCharge5.Location = new System.Drawing.Point(100, 215);
+            this.lblCurrentCharge5.Location = new System.Drawing.Point(84, 216);
             this.lblCurrentCharge5.Name = "lblCurrentCharge5";
             this.lblCurrentCharge5.Size = new System.Drawing.Size(101, 30);
             this.lblCurrentCharge5.TabIndex = 3;
             this.lblCurrentCharge5.Text = "₱0.00";
+            this.lblCurrentCharge5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer5
             // 
@@ -1793,11 +1788,12 @@
             // 
             this.lblCurrentCharge6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentCharge6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(204)))), ((int)(((byte)(21)))));
-            this.lblCurrentCharge6.Location = new System.Drawing.Point(100, 215);
+            this.lblCurrentCharge6.Location = new System.Drawing.Point(84, 216);
             this.lblCurrentCharge6.Name = "lblCurrentCharge6";
             this.lblCurrentCharge6.Size = new System.Drawing.Size(101, 30);
             this.lblCurrentCharge6.TabIndex = 3;
             this.lblCurrentCharge6.Text = "₱0.00";
+            this.lblCurrentCharge6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer6
             // 
@@ -2079,11 +2075,12 @@
             // 
             this.lblCurrentCharge7.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentCharge7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(204)))), ((int)(((byte)(21)))));
-            this.lblCurrentCharge7.Location = new System.Drawing.Point(101, 221);
+            this.lblCurrentCharge7.Location = new System.Drawing.Point(92, 221);
             this.lblCurrentCharge7.Name = "lblCurrentCharge7";
             this.lblCurrentCharge7.Size = new System.Drawing.Size(89, 30);
             this.lblCurrentCharge7.TabIndex = 3;
             this.lblCurrentCharge7.Text = "₱0.00";
+            this.lblCurrentCharge7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer7
             // 
@@ -2365,11 +2362,12 @@
             // 
             this.lblCurrentCharge8.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentCharge8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(204)))), ((int)(((byte)(21)))));
-            this.lblCurrentCharge8.Location = new System.Drawing.Point(101, 221);
+            this.lblCurrentCharge8.Location = new System.Drawing.Point(92, 221);
             this.lblCurrentCharge8.Name = "lblCurrentCharge8";
             this.lblCurrentCharge8.Size = new System.Drawing.Size(89, 30);
             this.lblCurrentCharge8.TabIndex = 3;
             this.lblCurrentCharge8.Text = "₱0.00";
+            this.lblCurrentCharge8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer8
             // 
@@ -2411,6 +2409,19 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // lblStatus1
+            // 
+            this.lblStatus1.AutoSize = true;
+            this.lblStatus1.BackColor = System.Drawing.Color.Transparent;
+            this.lblStatus1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblStatus1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(120)))));
+            this.lblStatus1.Location = new System.Drawing.Point(86, 43);
+            this.lblStatus1.Name = "lblStatus1";
+            this.lblStatus1.Size = new System.Drawing.Size(87, 17);
+            this.lblStatus1.TabIndex = 1;
+            this.lblStatus1.Text = "● AVAILABLE";
             // 
             // ucDashboard
             // 
@@ -2476,7 +2487,6 @@
         private System.Windows.Forms.Button btnTable1;
         private System.Windows.Forms.Label lblCurrentCharge1;
         private System.Windows.Forms.Label lblTimer1;
-        private System.Windows.Forms.Label lblStatus1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
@@ -2645,5 +2655,6 @@
         private System.Windows.Forms.Label lblTimer8;
         private System.Windows.Forms.Label lblStatus8;
         private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label lblStatus1;
     }
 }
